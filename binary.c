@@ -1,15 +1,16 @@
 🧭 Aim:
   To write a C program that performs Binary Search on a sorted array to find the position of a given element.
 ⚙️ Algorithm:
-   1.Input the size and sorted elements of the array.
-   2.Input the element to search (term).
-   3.Initialize left = 0, right = size - 1.
-   4.While left <= right:
-   Compute mid = left + (right - left) / 2.
-   If arr[mid] == term, return mid.
-   If arr[mid] < term, set left = mid + 1.
-   Else set right = mid - 1.
-   5.If not found, return -1.    
+  • Divide the search space into two halves by finding the middle index "mid".
+  • Compare the middle element of the search space with the key.
+  • If the key is found at middle element, the process is terminated.
+  • If the key is not found at middle element, choose which half will be used as the next
+  search space.
+  – If the key is smaller than the middle element, then the left side is used for next
+  search.
+  – If the key is larger than the middle element, then the right side is used for next
+  search.
+  • This process is continued until the key is found or the total search space is exhausted.   
 code:
 #include <stdio.h>
 // Function to perform Binary Search
@@ -48,4 +49,5 @@ int main() {
         printf("Not found\n");
 
     return 0;                                
+
 
