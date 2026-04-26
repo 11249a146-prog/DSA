@@ -25,24 +25,26 @@ void dijkstra(int graph[V][V])
 {
     int dist[V], visit[V];
 
-    /* Initial values */
+    /* Initialize distance and visited arrays */
     for (int i = 0; i < V; i++)
     {
         dist[i] = INF;
         visit[i] = 0;
     }
 
-    dist[0] = 0;   // source vertex
+    dist[0] = 0;   // Source vertex
 
+    /* Repeat for all vertices */
     for (int i = 0; i < V - 1; i++)
     {
-        int u = findMin(dist, visit);
+        int u = findMin(dist, visit);   // Get nearest unvisited vertex
 
         if (u == -1)
             break;
 
-        visit[u] = 1;
+        visit[u] = 1;   // Mark vertex as visited
 
+        /* Update distance of adjacent vertices */
         for (int j = 0; j < V; j++)
         {
             if (visit[j] == 0 && graph[u][j] != 0 &&
@@ -56,6 +58,7 @@ void dijkstra(int graph[V][V])
 
     printf("\nVertex \t Distance from Source (0)\n");
 
+    /* Print shortest distances */
     for (int i = 0; i < V; i++)
     {
         printf("%d --> %d\n", i, dist[i]);
@@ -64,6 +67,7 @@ void dijkstra(int graph[V][V])
 
 int main()
 {
+    /* Adjacency matrix representation of graph */
     int graph[V][V] =
     {
         {0, 10, 0, 30, 100},
@@ -73,7 +77,9 @@ int main()
         {100, 0, 10, 60, 0}
     };
 
-    dijkstra(graph);
+    dijkstra(graph);   // Call function
 
     return 0;
 }
+
+
